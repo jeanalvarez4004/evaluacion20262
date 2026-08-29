@@ -140,9 +140,7 @@ C:\Users\JEAN\Documents\evaluacion20262\obj\Debug\net9.0\evaluacion20262.RazorAs
 C:\Users\JEAN\Documents\evaluacion20262\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\JEAN\Documents\evaluacion20262\obj\Debug\net9.0\scopedcss\bundle\evaluacion20262.styles.css
 C:\Users\JEAN\Documents\evaluacion20262\obj\Debug\net9.0\scopedcss\projectbundle\evaluacion20262.bundle.scp.css
-C:\Users\JEAN\Documents\evaluacion20262\obj\Debug\net9.0\compressed\q5lyufmfg4-b9sayid5wm.gz
 C:\Users\JEAN\Documents\evaluacion20262\obj\Debug\net9.0\compressed\2qtlifxdfx-61n19gt1b8.gz
-C:\Users\JEAN\Documents\evaluacion20262\obj\Debug\net9.0\compressed\79gfica6c1-xtxxf3hu2r.gz
 C:\Users\JEAN\Documents\evaluacion20262\obj\Debug\net9.0\compressed\2x9bwsf9lj-bqjiyaj88i.gz
 C:\Users\JEAN\Documents\evaluacion20262\obj\Debug\net9.0\compressed\u7vtjvq6io-c2jlpeoesf.gz
 C:\Users\JEAN\Documents\evaluacion20262\obj\Debug\net9.0\compressed\w2au5p9sf3-erw9l3u2r3.gz
@@ -214,3 +212,5 @@ C:\Users\JEAN\Documents\evaluacion20262\obj\Debug\net9.0\refint\evaluacion20262.
 C:\Users\JEAN\Documents\evaluacion20262\obj\Debug\net9.0\evaluacion20262.pdb
 C:\Users\JEAN\Documents\evaluacion20262\obj\Debug\net9.0\evaluacion20262.genruntimeconfig.cache
 C:\Users\JEAN\Documents\evaluacion20262\obj\Debug\net9.0\ref\evaluacion20262.dll
+C:\Users\JEAN\Documents\evaluacion20262\obj\Debug\net9.0\compressed\q5lyufmfg4-xntewvqmza.gz
+C:\Users\JEAN\Documents\evaluacion20262\obj\Debug\net9.0\compressed\79gfica6c1-syzt7i6bj4.gz

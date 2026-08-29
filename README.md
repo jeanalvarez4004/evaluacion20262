@@ -11,10 +11,10 @@ Portal interno de **TecnoHogar** (instalación, mantenimiento, revisión y fugas
 
 | Entregable | URL |
 |---|---|
-| **Repositorio GitHub** (con ramas, PRs y merges visibles) | `https://github.com/<tu-usuario>/evaluacion20262` → Reemplazar tras `git push` |
-| **Aplicación en Render** (URL pública) | `https://evaluacion20262.onrender.com` → Se genera al desplegar en Render |
+| **Repositorio GitHub** (con ramas, PRs y merges visibles) | **https://github.com/jeanalvarez4004/evaluacion20262** ✅ |
+| **Aplicación en Render** (URL pública) | **https://evaluacion20262.onrender.com** ✅ LIVE |
 
-> Después de hacer push y deploy, actualiza estas URLs. Instrucciones abajo.
+> Despliegue verificado: `200 OK` en `/`, `/Solicitudes/Crear` y `/Solicitudes`. PRs #1-#4 visibles en GitHub (MERGED).
 
 ---
 

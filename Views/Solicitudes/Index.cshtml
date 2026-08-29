@@ -1,0 +1,86 @@
+@model List<evaluacion20262.Models.SolicitudServicio>
+@{
+    ViewData["Title"] = "Solicitudes Registradas";
+}
+<div class="listado-wrapper">
+    <div class="listado-header animate-fade-in">
+        <div>
+            <h1><i class="bi bi-collection"></i> Solicitudes Registradas</h1>
+            <p>@Model.Count solicitudes en total • Ordenadas por fecha reciente</p>
+        </div>
+        <a asp-action="Crear" class="btn-primary"><i class="bi bi-plus-lg"></i> Nueva Solicitud</a>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert-success-custom animate-slide-down"><i class="bi bi-check-circle-fill"></i> @TempData["Success"]</div>
+    }
+
+    @if (!Model.Any())
+    {
+        <div class="empty-state">
+            <div class="empty-icon"><i class="bi bi-inbox"></i></div>
+            <h3>Aún no hay solicitudes</h3>
+            <p>Registra la primera para verla aquí.</p>
+            <a asp-action="Crear" class="btn-primary">Crear solicitud</a>
+        </div>
+    }
+    else
+    {
+        <div class="stats-bar">
+            <div class="stat"><span class="stat-num">@Model.Count</span><span>Total</span></div>
+            <div class="stat"><span class="stat-num">@Model.Count(s => s.TipoServicio=="Fuga")</span><span>Emergencias</span></div>
+            <div class="stat"><span class="stat-num">@Model.Count(s => s.FechaRegistro.Date==DateTime.Today)</span><span>Hoy</span></div>
+            <div class="stat"><span class="stat-num">@Model.Select(s=>s.Distrito).Distinct().Count()</span><span>Distritos</span></div>
+        </div>
+
+        <div class="table-card animate-fade-up">
+            <div class="table-responsive">
+                <table class="modern-table">
+                    <thead>
+                        <tr>
+                            <th>#</th><th>Cliente</th><th>Teléfono</th><th>Distrito</th><th>Servicio</th><th>Descripción</th><th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var s in Model)
+                    {
+                        <tr class="row-anim">
+                            <td><span class="badge-id">#@s.Id</span></td>
+                            <td><strong>@s.Cliente</strong></td>
+                            <td><a href="tel:@s.Telefono" class="phone-link"><i class="bi bi-telephone"></i> @s.Telefono</a></td>
+                            <td><span class="badge-distrito"><i class="bi bi-geo-alt"></i> @s.Distrito</span></td>
+                            <td>
+                                @{
+                                    var cls = s.TipoServicio switch {
+                                        "Instalación" => "badge-inst",
+                                        "Mantenimiento" => "badge-mant",
+                                        "Revisión" => "badge-rev",
+                                        _ => "badge-fuga"
+                                    };
+                                }
+                                <span class="badge-servicio @cls">@s.TipoServicio</span>
+                            </td>
+                            <td class="desc-cell" title="@s.Descripcion">@(string.IsNullOrEmpty(s.Descripcion) ? "—" : (s.Descripcion.Length>40 ? s.Descripcion.Substring(0,40)+"…" : s.Descripcion))</td>
+                            <td><span class="fecha">@s.FechaRegistro.ToString("dd/MM/yyyy HH:mm")</span></td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="cards-mobile">
+        @foreach (var s in Model)
+        {
+            <div class="solicitud-card">
+                <div class="card-top"><span class="badge-id">#@s.Id</span><span class="badge-servicio @(s.TipoServicio=="Instalación"?"badge-inst":s.TipoServicio=="Mantenimiento"?"badge-mant":s.TipoServicio=="Revisión"?"badge-rev":"badge-fuga")">@s.TipoServicio</span></div>
+                <h3>@s.Cliente</h3>
+                <p><i class="bi bi-telephone"></i> @s.Telefono • <i class="bi bi-geo-alt"></i> @s.Distrito</p>
+                <p class="desc">@s.Descripcion</p>
+                <small>@s.FechaRegistro.ToString("dd MMM yyyy HH:mm")</small>
+            </div>
+        }
+        </div>
+    }
+</div>

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using evaluacion20262.Data;
 using evaluacion20262.Models;
 
@@ -8,6 +9,12 @@ public class SolicitudesController : Controller
 {
     private readonly AppDbContext _context;
     public SolicitudesController(AppDbContext context) => _context = context;
+
+    public async Task<IActionResult> Index()
+    {
+        var lista = await _context.Solicitudes.OrderByDescending(s => s.FechaRegistro).ToListAsync();
+        return View(lista);
+    }
 
     [HttpGet]
     public IActionResult Crear() => View(new SolicitudServicio());
@@ -21,6 +28,6 @@ public class SolicitudesController : Controller
         _context.Solicitudes.Add(model);
         await _context.SaveChangesAsync();
         TempData["Success"] = $"¡Solicitud registrada! Ticket #{model.Id} para {model.Cliente}";
-        return RedirectToAction(nameof(Crear));
+        return RedirectToAction(nameof(Index));
     }
 }

@@ -1,0 +1,72 @@
+@model evaluacion20262.Models.SolicitudServicio
+@{
+    ViewData["Title"] = "Nueva Solicitud - TecnoHogar";
+}
+
+<div class="registro-wrapper">
+    <div class="registro-header animate-fade-in">
+        <div class="icon-badge"><i class="bi bi-tools"></i></div>
+        <h1>Nueva Solicitud de Servicio</h1>
+        <p>¿Necesitas instalación, mantenimiento o reparación? Estamos listos para ayudarte.</p>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert-success-custom animate-slide-down">
+            <i class="bi bi-check-circle-fill"></i> @TempData["Success"]
+            <a asp-action="Index" class="btn-link-success">Ver listado →</a>
+        </div>
+    }
+
+    <form asp-action="Crear" method="post" class="glass-card animate-fade-up">
+        <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+        <div class="form-grid">
+            <div class="form-group">
+                <label asp-for="Cliente"><i class="bi bi-person"></i> Cliente</label>
+                <input asp-for="Cliente" class="form-input" placeholder="Nombre completo" />
+                <span asp-validation-for="Cliente" class="field-error"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefono"><i class="bi bi-telephone"></i> Teléfono</label>
+                <input asp-for="Telefono" class="form-input" placeholder="987 654 321" />
+                <span asp-validation-for="Telefono" class="field-error"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Distrito"><i class="bi bi-geo-alt"></i> Distrito</label>
+                <input asp-for="Distrito" class="form-input" placeholder="Ej. Miraflores" list="distritos" />
+                <datalist id="distritos">
+                    <option value="Miraflores"></option><option value="San Isidro"></option><option value="Surco"></option><option value="La Molina"></option><option value="Ate"></option><option value="Villa El Salvador"></option>
+                </datalist>
+                <span asp-validation-for="Distrito" class="field-error"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoServicio"><i class="bi bi-wrench"></i> Tipo de Servicio</label>
+                <select asp-for="TipoServicio" class="form-input">
+                    <option value="">-- Seleccione --</option>
+                    <option value="Instalación">Instalación</option>
+                    <option value="Mantenimiento">Mantenimiento</option>
+                    <option value="Revisión">Revisión</option>
+                    <option value="Fuga">Fuga / Emergencia</option>
+                </select>
+                <span asp-validation-for="TipoServicio" class="field-error"></span>
+            </div>
+            <div class="form-group full-width">
+                <label asp-for="Descripcion"><i class="bi bi-chat-left-text"></i> Descripción <span class="optional">(opcional)</span></label>
+                <textarea asp-for="Descripcion" class="form-input textarea" rows="3" placeholder="Describe el problema: artefacto, síntomas, urgencia..."></textarea>
+                <span asp-validation-for="Descripcion" class="field-error"></span>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn-primary"><span>Registrar Solicitud</span> <i class="bi bi-send-fill"></i></button>
+            <a asp-controller="Home" asp-action="Index" class="btn-secondary">Cancelar</a>
+        </div>
+    </form>
+
+    <div class="trust-badges">
+        <span><i class="bi bi-shield-check"></i> Datos protegidos</span>
+        <span><i class="bi bi-lightning"></i> Respuesta en 24h</span>
+        <span><i class="bi bi-award"></i> Técnicos certificados</span>
+    </div>
+</div>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

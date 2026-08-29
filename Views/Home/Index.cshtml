@@ -1,8 +1,60 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content" data-aos="fade-up">
+        <div class="hero-badge"><span class="pulse"></span> Sistema interno • Sin papel • En la nube</div>
+        <h1>Tu hogar<br/><span class="gradient-text">siempre operativo</span></h1>
+        <p>Portal interno de <strong>TecnoHogar</strong> para registrar y dar seguimiento a instalaciones, mantenimientos, revisiones y fugas. Rápido, trazable y 100% digital.</p>
+        <div class="hero-actions">
+            <a asp-controller="Solicitudes" asp-action="Crear" class="btn-hero-primary">Registrar solicitud <i class="bi bi-arrow-right"></i></a>
+            <a asp-controller="Solicitudes" asp-action="Index" class="btn-hero-secondary"><i class="bi bi-eye"></i> Ver solicitudes</a>
+        </div>
+        <div class="hero-stats">
+            <div class="h-stat"><b id="counter1">0</b><span>Solicitudes gestionadas</span></div>
+            <div class="h-stat"><b>24h</b><span>Tiempo de respuesta</span></div>
+            <div class="h-stat"><b>4.9★</b><span>Satisfacción</span></div>
+        </div>
+    </div>
+    <div class="hero-visual" data-aos="zoom-in" data-aos-delay="200">
+        <div class="mockup-card">
+            <div class="mockup-header"><span></span><span></span><span></span> Solicitud #1024</div>
+            <div class="mockup-body">
+                <div class="mockup-line w80"></div>
+                <div class="mockup-line w60"></div>
+                <div class="mockup-tags"><span class="tag inst">Instalación</span><span class="tag fuga">Fuga</span></div>
+                <div class="mockup-progress"><div class="progress-bar"></div></div>
+            </div>
+            <div class="floating-card fc1"><i class="bi bi-check2-circle"></i> Registrado en 3s</div>
+            <div class="floating-card fc2"><i class="bi bi-database"></i> SQLite • EF Core</div>
+        </div>
+    </div>
+</section>
+
+<section class="services" data-aos="fade-up">
+    <h2 class="section-title">¿Qué gestionamos?</h2>
+    <div class="service-grid">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="0"><div class="s-icon inst"><i class="bi bi-tools"></i></div><h3>Instalación</h3><p>Cocinas, termas, gas y artefactos con protocolo certificado.</p></div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100"><div class="s-icon mant"><i class="bi bi-gear"></i></div><h3>Mantenimiento</h3><p>Preventivo programado para evitar fallas y ahorrar energía.</p></div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200"><div class="s-icon rev"><i class="bi bi-search"></i></div><h3>Revisión</h3><p>Diagnóstico completo y reporte fotográfico.</p></div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300"><div class="s-icon fuga"><i class="bi bi-droplet"></i></div><h3>Fugas</h3><p>Atención prioritaria 24/7 con cierre y prueba de hermeticidad.</p></div>
+    </div>
+</section>
+
+<section class="cta-band">
+    <div class="cta-inner" data-aos="zoom-in">
+        <h2>¿Listo para digitalizar las solicitudes?</h2>
+        <p>De WhatsApp y papel a un portal trazable con base de datos SQLite y despliegue en Render.</p>
+        <a asp-controller="Solicitudes" asp-action="Crear" class="btn-hero-primary light">Crear mi primera solicitud</a>
+    </div>
+</section>
+
+<section class="tech-strip">
+    <span><i class="bi bi-microsoft"></i> .NET 9 MVC</span>
+    <span><i class="bi bi-database-fill"></i> SQLite + EF Core</span>
+    <span><i class="bi bi-git"></i> GitHub Flow • PRs</span>
+    <span><i class="bi bi-cloud-upload"></i> Render Deploy</span>
+    <span><i class="bi bi-palette"></i> UI Premium Animada</span>
+</section>
